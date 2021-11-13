@@ -16,7 +16,7 @@ describe("WFS Download module", () => {
 
 	describe("downloadWfs", () => {
 		it("throws an error when passed an unsupported format", () => {
-			expect(() => { downloadWfs(null, null, null, "DWG") }).to.throw(TypeError);
+			expect(() => { downloadWfs(null, null, null, "DWG") }).to.throw(TypeError, "Invalid download format: ");
 		});
 	});
 });
