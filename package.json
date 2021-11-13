@@ -1,0 +1,19 @@
+{
+  "name": "ol-gs-download-widget",
+  "version": "1.0.0",
+  "description": "Example using OpenLayers with Webpack",
+  "scripts": {
+		"test": "mocha --register esm",
+    "build": "wp --config webpack.config.js"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "esm": "^3.2.25",
+    "mocha": "^9.1.3",
+    "webpack": "^5.58.1",
+    "webpack-nano": "^1.1.1"
+  },
+  "dependencies": {
+    "ol": "latest"
+  }
+}
