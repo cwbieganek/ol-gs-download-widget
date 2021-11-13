@@ -7,7 +7,7 @@
 		"test": "mocha --register esm",
 		"build": "wp --config webpack.config.js",
 		"build-dev": "NODE_ENV=\"development\" wp --config webpack.config.js"
-  },
+	},
 	"devDependencies": {
 		"chai": "^4.3.4",
 		"esm": "^3.2.25",
@@ -16,6 +16,7 @@
 		"webpack-nano": "^1.1.1"
 	},
 	"dependencies": {
-		"ol": "latest"
+		"ol": "latest",
+		"papaparse": "^5.3.1"
 	}
 }
