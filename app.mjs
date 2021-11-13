@@ -14,6 +14,9 @@ import {bbox as bboxStrategy} from 'ol/loadingstrategy.js';
 // CSV parser
 import Papa from "papaparse";
 
+// WFS Download module
+import { downloadWfs } from './wfs-download.mjs';
+
 export default function app() {
 	const vectorSource = new VectorSource({
 		format: new GeoJSON(),
@@ -55,6 +58,15 @@ export default function app() {
 			zoom: 2
 		})
 	});
+
+	function downloadMnCountiesWfs(format) {
+		downloadWfs(
+			"http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs",
+			"1.0.0",
+			"mn:county_nrcs_a_mn",
+			format
+		);
+	}
 
 	function afterCsvParsed(results) {
 		if (results.errors.length > 0) {
