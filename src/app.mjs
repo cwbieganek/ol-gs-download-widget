@@ -10,12 +10,37 @@ import { Stroke, Style } from 'ol/style.js';
 // import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer.js';
 import { Vector as VectorLayer } from 'ol/layer.js';
 import {bbox as bboxStrategy} from 'ol/loadingstrategy.js';
+import {Control, defaults as defaultControls} from 'ol/control.js';
 
 // CSV parser
 import Papa from "papaparse";
 
 // WFS Download module
 import { downloadWfs } from './wfs-download.mjs';
+
+class RotateNorthControl extends Control {
+	constructor(opt_options) {
+		const options = opt_options || {};
+
+		const button = document.createElement('button');
+		button.innerHTML = 'N';
+
+		const element = document.createElement('div');
+		element.className = 'rotate-north ol-unselectable ol-control';
+		element.appendChild(button);
+
+		super({
+			element: element,
+			target: options.target,
+		});
+
+		button.addEventListener('click', this.handleRotateNorth.bind(this), false);
+	}
+
+	handleRotateNorth() {
+		this.getMap().getView().setRotation(0);
+	}
+}
 
 export default function app() {
 	const vectorSource = new VectorSource({
@@ -44,6 +69,7 @@ export default function app() {
 	});
 
 	new Map({
+		controls: defaultControls().extend([new RotateNorthControl()]),
 		target: 'map',
 		layers: [
 			new TileLayer({
