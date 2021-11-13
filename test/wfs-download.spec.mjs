@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { buildUrl, downloadWfs } from "../wfs-download.mjs";
+import { buildUrl, downloadWfs } from "../src/wfs-download.mjs";
 
 describe("WFS Download module", () => {
 	describe("buildUrl", () => {
