@@ -1,13 +1,10 @@
+// OpenLayers imports
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile.js';
 import XYZ from 'ol/source/XYZ.js';
-
-// Imports from WFS example located here: https://openlayers.org/en/latest/examples/vector-wfs.html
-// import 'ol/ol.css';
 import GeoJSON from 'ol/format/GeoJSON.js';
 import VectorSource from 'ol/source/Vector.js';
 import { Stroke, Style } from 'ol/style.js';
-// import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer.js';
 import { Vector as VectorLayer } from 'ol/layer.js';
 import {bbox as bboxStrategy} from 'ol/loadingstrategy.js';
 import {Control, defaults as defaultControls} from 'ol/control.js';
