@@ -28,5 +28,5 @@ export function downloadWfs(path, version, typeName, format) {
 	// Format is valid. Build URL.
 	let url = buildUrl(path, version, typeName, format);
 
-	// window.open(url);
+	window.open(url);
 }
