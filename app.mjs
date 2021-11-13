@@ -11,6 +11,9 @@ import { Stroke, Style } from 'ol/style.js';
 import { Vector as VectorLayer } from 'ol/layer.js';
 import {bbox as bboxStrategy} from 'ol/loadingstrategy.js';
 
+// CSV parser
+import Papa from "papaparse";
+
 export default function app() {
 	const vectorSource = new VectorSource({
 		format: new GeoJSON(),
@@ -51,5 +54,19 @@ export default function app() {
 			center: [0, 0],
 			zoom: 2
 		})
+	});
+
+	// Attempt to parse the MN vaccination by county CSV from S3
+	Papa.parse("https://chrisb-gis-data.s3.us-west-2.amazonaws.com/MN_People_Vaccinated_By_County_211105.csv", {
+		download: true,
+		complete: function(results) {
+			if (results.errors.length > 0) {
+				console.error("Failed to parse the \"MN People Vaccinated By County CSV\"");
+				return;
+			}
+
+			// Sucessfully parsed the CSV
+			console.log("Successfully parsed the \"MN People Vaccinated By County CSV\"");
+		}
 	});
 }
