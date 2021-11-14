@@ -109,6 +109,7 @@ export default function app() {
 	let popupDownloadButton = document.getElementsByTagName("mwc-button")[0];
 	popupDownloadButton.addEventListener("click", () => {
 		downloadMnCountiesWfs(formatSelect.selected.value);
+		document.getElementById("format-select-container").classList.replace("flex", "no-display");
 	});
 
 	function afterCsvParsed(results) {
