@@ -21,6 +21,18 @@
   </head>
   <body>
     <div id="map"></div>
+		<div id="format-select-container" class="no-display">
+			<mwc-select outlined label="Select a format:">
+				<mwc-list-item></mwc-list-item>
+				<mwc-list-item value="SHAPE-ZIP">Shapefile</mwc-list-item>
+				<mwc-list-item value="application/vnd.google-earth.kml+xml">KML</mwc-list-item>
+				<mwc-list-item value="csv">CSV</mwc-list-item>
+				<mwc-list-item value="application/json">GeoJSON</mwc-list-item>
+			</mwc-select>
+			<br>
+			<br>
+			<mwc-button raised label="Download" icon="file_download"></mwc-button>
+		</div>
     <script src="./bundle.js"></script>
   </body>
 </html>

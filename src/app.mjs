@@ -13,8 +13,9 @@ import {Control, defaults as defaultControls} from 'ol/control.js';
 // import Papa from "papaparse";
 
 // Material Web Components
-import '@material/mwc-select';
-import '@material/mwc-list/mwc-list-item';
+import '../node_modules/@material/mwc-select/mwc-select.js';
+import '../node_modules/@material/mwc-list/mwc-list-item.js';
+import '../node_modules/@material/mwc-button/mwc-button.js';
 
 // WFS Download module
 import { downloadWfs } from './wfs-download.mjs';
@@ -39,7 +40,9 @@ class DownloadControl extends Control {
 	}
 
 	handleDownloadClick() {
-		downloadMnCountiesWfs("SHAPE-ZIP");
+		console.log("Download button clicked!");
+		document.getElementById("format-select-container").classList.replace("no-display", "flex");
+		// downloadMnCountiesWfs("SHAPE-ZIP");
 	}
 }
 
@@ -93,6 +96,18 @@ export default function app() {
 			center: [0, 0],
 			zoom: 2
 		})
+	});
+
+	// Add event listeners to download format select element
+	let formatSelect = document.getElementsByTagName("mwc-select")[0];
+	formatSelect.addEventListener("selected", () => {
+		console.log(`You selected the ${formatSelect.selected.value} file format.`);
+	});
+
+	// Add event listeners to download button (in popup)
+	let popupDownloadButton = document.getElementsByTagName("mwc-button")[0];
+	popupDownloadButton.addEventListener("click", () => {
+		downloadMnCountiesWfs(formatSelect.selected.value);
 	});
 
 	function afterCsvParsed(results) {
