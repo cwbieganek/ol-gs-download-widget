@@ -3,7 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>Using OpenLayers with Webpack</title>
+
+		<!-- OpenLayers Style -->
     <link rel="stylesheet" href="https://openlayers.org/en/latest/css/ol.css" type="text/css">
+
+		<!-- Add support for Web Components to older browsers. -->
+		<script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+		<!-- Roboto and Material Icons fonts for Material Web Components -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+
+		<!-- App Style -->
     <link rel="stylesheet" href="./css/index.css" type="text/css">
   </head>
   <body>
