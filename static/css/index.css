@@ -19,3 +19,25 @@ html, body {
 .ol-touch .rotate-north {
 	top: 80px;
 }
+
+#format-select-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 30px;
+	border: 1px solid black;
+	border-radius: 2px;
+	background-color: white;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.no-display {
+	display: none;
+}
+
+.flex {
+	display: flex;
+}
