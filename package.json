@@ -9,6 +9,8 @@
 		"build-dev": "NODE_ENV=\"development\" wp --config webpack.config.js"
 	},
 	"devDependencies": {
+		"@material/mwc-select": "^0.25.3",
+		"@webcomponents/webcomponentsjs": "^2.6.0",
 		"chai": "^4.3.4",
 		"copy-webpack-plugin": "^9.1.0",
 		"esm": "^3.2.25",
