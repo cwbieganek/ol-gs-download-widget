@@ -19,6 +19,7 @@
 		"webpack-nano": "^1.1.1"
 	},
 	"dependencies": {
+		"@material/mwc-button": "^0.25.3",
 		"ol": "latest",
 		"papaparse": "^5.3.1"
 	}
