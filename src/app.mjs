@@ -16,6 +16,7 @@ import {Control, defaults as defaultControls} from 'ol/control.js';
 import '../node_modules/@material/mwc-select/mwc-select.js';
 import '../node_modules/@material/mwc-list/mwc-list-item.js';
 import '../node_modules/@material/mwc-button/mwc-button.js';
+import '../node_modules/@material/mwc-top-app-bar/mwc-top-app-bar.js';
 
 // WFS Download module
 import { downloadWfs } from './wfs-download.mjs';

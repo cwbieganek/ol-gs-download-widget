@@ -20,7 +20,16 @@
     <link rel="stylesheet" href="./css/index.css" type="text/css">
   </head>
   <body>
-    <div id="map"></div>
+    <div id="map">
+			<mwc-top-app-bar>
+				<!-- <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button> -->
+				<div slot="title">OpenLayers with Layer Download Widget</div>
+				<!-- <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
+				<mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
+				<mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button> -->
+				<div><!-- content --></div>
+			</mwc-top-app-bar>
+		</div>
 		<div id="format-select-container" class="no-display">
 			<mwc-select outlined label="Select a format:">
 				<mwc-list-item></mwc-list-item>
