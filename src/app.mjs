@@ -10,7 +10,7 @@ import {bbox as bboxStrategy} from 'ol/loadingstrategy.js';
 import {Control, defaults as defaultControls} from 'ol/control.js';
 
 // CSV parser
-import Papa from "papaparse";
+// import Papa from "papaparse";
 
 // WFS Download module
 import { downloadWfs } from './wfs-download.mjs';
