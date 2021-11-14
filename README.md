@@ -18,3 +18,5 @@ Create a bundle for the browser.
 Open `index.html` to see the result.
 
     open index.html
+
+Lit component libraries: https://github.com/web-padawan/awesome-lit#component-libraries
