@@ -12,6 +12,10 @@ import {Control, defaults as defaultControls} from 'ol/control.js';
 // CSV parser
 // import Papa from "papaparse";
 
+// Material Web Components
+import '@material/mwc-select';
+import '@material/mwc-list/mwc-list-item';
+
 // WFS Download module
 import { downloadWfs } from './wfs-download.mjs';
 
