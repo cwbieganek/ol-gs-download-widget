@@ -15,12 +15,12 @@ import Papa from "papaparse";
 // WFS Download module
 import { downloadWfs } from './wfs-download.mjs';
 
-class RotateNorthControl extends Control {
+class DownloadControl extends Control {
 	constructor(opt_options) {
 		const options = opt_options || {};
 
 		const button = document.createElement('button');
-		button.innerHTML = 'N';
+		button.innerHTML = '<img style="width: 20px;" src="file_download_white_24dp.svg" title="Download MN Counties" alt="Download Icon" />';
 
 		const element = document.createElement('div');
 		element.className = 'rotate-north ol-unselectable ol-control';
@@ -31,12 +31,21 @@ class RotateNorthControl extends Control {
 			target: options.target,
 		});
 
-		button.addEventListener('click', this.handleRotateNorth.bind(this), false);
+		button.addEventListener('click', this.handleDownloadClick, false);
 	}
 
-	handleRotateNorth() {
-		this.getMap().getView().setRotation(0);
+	handleDownloadClick() {
+		downloadMnCountiesWfs("SHAPE-ZIP");
 	}
+}
+
+function downloadMnCountiesWfs(format) {
+	downloadWfs(
+		"http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs",
+		"1.0.0",
+		"mn:county_nrcs_a_mn",
+		format
+	);
 }
 
 export default function app() {
@@ -66,7 +75,7 @@ export default function app() {
 	});
 
 	new Map({
-		controls: defaultControls().extend([new RotateNorthControl()]),
+		controls: defaultControls().extend([new DownloadControl()]),
 		target: 'map',
 		layers: [
 			new TileLayer({
@@ -81,15 +90,6 @@ export default function app() {
 			zoom: 2
 		})
 	});
-
-	function downloadMnCountiesWfs(format) {
-		downloadWfs(
-			"http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs",
-			"1.0.0",
-			"mn:county_nrcs_a_mn",
-			format
-		);
-	}
 
 	function afterCsvParsed(results) {
 		if (results.errors.length > 0) {
