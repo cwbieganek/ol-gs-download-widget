@@ -20,7 +20,7 @@ class DownloadControl extends Control {
 		const options = opt_options || {};
 
 		const button = document.createElement('button');
-		button.innerHTML = '<img style="width: 20px;" src="file_download_white_24dp.svg" title="Download MN Counties" alt="Download Icon" />';
+		button.innerHTML = '<img style="width: 20px;" src="img/file_download_white_24dp.svg" title="Download MN Counties" alt="Download Icon" />';
 
 		const element = document.createElement('div');
 		element.className = 'rotate-north ol-unselectable ol-control';
