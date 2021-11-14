@@ -102,8 +102,8 @@ export default function app() {
 	}
 
 	// Attempt to parse the MN vaccination by county CSV from S3
-	Papa.parse("https://chrisb-gis-data.s3.us-west-2.amazonaws.com/MN_People_Vaccinated_By_County_211105.csv", {
-		download: true,
-		complete: afterCsvParsed
-	});
+	// Papa.parse("https://chrisb-gis-data.s3.us-west-2.amazonaws.com/MN_People_Vaccinated_By_County_211105.csv", {
+	// 	download: true,
+	// 	complete: afterCsvParsed
+	// });
 }
