@@ -1,3 +1,7 @@
+html {
+	--mdc-theme-primary: #00C853;
+}
+
 html, body {
 	margin: 0;
 	height: 100%;
@@ -40,4 +44,9 @@ html, body {
 
 .flex {
 	display: flex;
+}
+
+/* OpenLayers style overrides */
+.ol-control button {
+	background-color: #00C853;
 }
