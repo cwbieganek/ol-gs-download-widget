@@ -106,7 +106,7 @@ export default function app() {
 	// WFS will not appear unless we start at zoom level 2. Once the layer appears, we can zoom in.
 	setTimeout(() => {
 		view.animate({ zoom: 6 });
-	}, 3000);
+	}, 2000);
 
 	// Add event listeners to download format select element
 	let formatSelect = document.getElementsByTagName("mwc-select")[0];
