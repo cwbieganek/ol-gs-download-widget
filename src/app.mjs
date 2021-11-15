@@ -76,7 +76,7 @@ export default function app() {
 		source: vectorSource,
 		style: new Style({
 			stroke: new Stroke({
-				color: 'rgba(0, 0, 255, 1.0)',
+				color: 'rgba(0, 0, 0, 1.0)',
 				width: 2,
 			}),
 		}),
