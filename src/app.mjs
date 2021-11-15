@@ -82,7 +82,13 @@ export default function app() {
 		}),
 	});
 
-	new Map({
+	let view = new View({
+		center: [-10524117.583902, 5752956.496856],
+		// center: [0, 0],
+		zoom: 2
+	});
+
+	const map = new Map({
 		controls: defaultControls().extend([new DownloadControl()]),
 		target: 'map',
 		layers: [
@@ -93,11 +99,14 @@ export default function app() {
 			}),
 			vector
 		],
-		view: new View({
-			center: [0, 0],
-			zoom: 2
-		})
+		view: view
 	});
+
+	// This is hack that waits three seconds before updating the zoom level because the MN Counties
+	// WFS will not appear unless we start at zoom level 2. Once the layer appears, we can zoom in.
+	setTimeout(() => {
+		view.animate({ zoom: 6 });
+	}, 3000);
 
 	// Add event listeners to download format select element
 	let formatSelect = document.getElementsByTagName("mwc-select")[0];
