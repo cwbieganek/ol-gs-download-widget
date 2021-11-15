@@ -17,6 +17,8 @@ import '../node_modules/@material/mwc-select/mwc-select.js';
 import '../node_modules/@material/mwc-list/mwc-list-item.js';
 import '../node_modules/@material/mwc-button/mwc-button.js';
 import '../node_modules/@material/mwc-top-app-bar/mwc-top-app-bar.js';
+import '../node_modules/@material/mwc-dialog/mwc-dialog.js';
+
 
 // WFS Download module
 import { downloadWfs } from './wfs-download.mjs';
@@ -42,7 +44,8 @@ class DownloadControl extends Control {
 
 	handleDownloadClick() {
 		console.log("Download button clicked!");
-		document.getElementById("format-select-container").classList.replace("no-display", "flex");
+		// document.getElementById("format-select-container").classList.replace("no-display", "flex");
+		document.getElementsByTagName("mwc-dialog")[0].show();
 		// downloadMnCountiesWfs("SHAPE-ZIP");
 	}
 }

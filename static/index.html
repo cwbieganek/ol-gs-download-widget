@@ -30,18 +30,22 @@
 				<div><!-- content --></div>
 			</mwc-top-app-bar>
 		</div>
-		<div id="format-select-container" class="no-display">
-			<mwc-select outlined label="Select a format:">
-				<mwc-list-item></mwc-list-item>
-				<mwc-list-item value="SHAPE-ZIP">Shapefile</mwc-list-item>
-				<mwc-list-item value="application/vnd.google-earth.kml+xml">KML</mwc-list-item>
-				<mwc-list-item value="csv">CSV</mwc-list-item>
-				<mwc-list-item value="application/json">GeoJSON</mwc-list-item>
-			</mwc-select>
-			<br>
-			<br>
-			<mwc-button raised label="Download" icon="file_download"></mwc-button>
-		</div>
+		<mwc-dialog heading="Download MN Counties" class="modal">
+			<!-- Dialog Content -->
+			<div style="height: 314px; padding-top: 7px;">
+				<mwc-select outlined label="Select a format:">
+					<mwc-list-item></mwc-list-item>
+					<mwc-list-item value="SHAPE-ZIP">Shapefile</mwc-list-item>
+					<mwc-list-item value="application/vnd.google-earth.kml+xml">KML</mwc-list-item>
+					<mwc-list-item value="csv">CSV</mwc-list-item>
+					<mwc-list-item value="application/json">GeoJSON</mwc-list-item>
+				</mwc-select>
+			</div>
+			<!-- Dialog Primary Action -->
+			<mwc-button raised slot="primaryAction" dialogAction="downloadButton" label="Download" icon="file_download"></mwc-button>
+			<!-- Dialog Secondary Action -->
+			<mwc-button outlined slot="secondaryAction" dialogAction="cancelButton" label="Cancel"></mwc-button>
+		</mwc-dialog>
     <script src="./bundle.js"></script>
   </body>
 </html>

@@ -38,12 +38,24 @@ html, body {
 	justify-content: center;
 }
 
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 .no-display {
 	display: none;
 }
 
 .flex {
 	display: flex;
+}
+
+mwc-dialog {
+	width: 200px;
+	height: 500px;
 }
 
 /* OpenLayers style overrides */
