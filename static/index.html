@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./css/index.css" type="text/css">
   </head>
   <body>
-    <div id="map">
+		<div id="flex-container">
 			<mwc-top-app-bar dense>
 				<!-- <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button> -->
 				<div slot="title">OpenLayers with Layer Download Widget</div>
@@ -29,8 +29,9 @@
 				<mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button> -->
 				<div><!-- content --></div>
 			</mwc-top-app-bar>
+			<div id="map"></div>
 		</div>
-		<mwc-dialog heading="Download MN Counties" class="modal">
+		<mwc-dialog heading="Download MN Counties">
 			<!-- Dialog Content -->
 			<div style="height: 314px; padding-top: 7px;">
 				<mwc-select outlined label="Select a format:">
