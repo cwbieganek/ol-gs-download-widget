@@ -85,6 +85,31 @@ export default function app() {
 		}),
 	});
 
+	const mnCongressionalDistrictsVectorSource = new VectorSource({
+		format: new GeoJSON(),
+		url: function (extent) {
+			return (
+				'http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs?service=WFS&' +
+				'version=1.1.0&request=GetFeature&typename=	mn:congdist_117_a_mn&' +
+				'outputFormat=application/json&srsname=EPSG:4326&' +
+				'bbox=' +
+				extent.join(',') +
+				',EPSG:4326'
+			);
+		},
+		strategy: bboxStrategy,
+	});
+	
+	const mnCongressionalDistrictsVectorLayer = new VectorLayer({
+		source: mnCongressionalDistrictsVectorSource,
+		style: new Style({
+			stroke: new Stroke({
+				color: 'rgba(0, 0, 255, 1.0)',
+				width: 2,
+			}),
+		}),
+	});
+
 	let view = new View({
 		center: [-10524117.583902, 5752956.496856],
 		// center: [0, 0],
@@ -100,7 +125,8 @@ export default function app() {
 					url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				})
 			}),
-			mnCountiesVectorLayer
+			mnCountiesVectorLayer,
+			mnCongressionalDistrictsVectorLayer
 		],
 		view: view
 	});
