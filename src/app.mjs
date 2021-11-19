@@ -104,9 +104,10 @@ export default function app() {
 		source: mnCongressionalDistrictsVectorSource,
 		style: new Style({
 			stroke: new Stroke({
-				color: 'rgba(0, 0, 255, 1.0)',
+				color: 'rgba(173, 216, 230, 1.0)',
 				width: 2,
-			}),
+				lineDash: [4, 10]
+			})
 		}),
 	});
 
