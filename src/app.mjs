@@ -44,9 +44,7 @@ class DownloadControl extends Control {
 
 	handleDownloadClick() {
 		console.log("Download button clicked!");
-		// document.getElementById("format-select-container").classList.replace("no-display", "flex");
 		document.getElementsByTagName("mwc-dialog")[0].show();
-		// downloadMnCountiesWfs("SHAPE-ZIP");
 	}
 }
 
@@ -113,7 +111,6 @@ export default function app() {
 
 	let view = new View({
 		center: [-10524117.583902, 5752956.496856],
-		// center: [0, 0],
 		zoom: 2
 	});
 
