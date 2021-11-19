@@ -60,7 +60,7 @@ function downloadMnCountiesWfs(format) {
 }
 
 export default function app() {
-	const vectorSource = new VectorSource({
+	const mnCountiesVectorSource = new VectorSource({
 		format: new GeoJSON(),
 		url: function (extent) {
 			return (
@@ -75,8 +75,8 @@ export default function app() {
 		strategy: bboxStrategy,
 	});
 	
-	const vector = new VectorLayer({
-		source: vectorSource,
+	const mnCountiesVectorLayer = new VectorLayer({
+		source: mnCountiesVectorSource,
 		style: new Style({
 			stroke: new Stroke({
 				color: 'rgba(0, 0, 0, 1.0)',
@@ -100,7 +100,7 @@ export default function app() {
 					url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				})
 			}),
-			vector
+			mnCountiesVectorLayer
 		],
 		view: view
 	});
