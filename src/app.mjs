@@ -131,7 +131,7 @@ export default function app() {
 		view: view
 	});
 
-	// This is hack that waits three seconds before updating the zoom level because the MN Counties
+	// This is hack that waits two seconds before updating the zoom level because the MN Counties
 	// WFS will not appear unless we start at zoom level 2. Once the layer appears, we can zoom in.
 	setTimeout(() => {
 		view.animate({ zoom: 6 });
