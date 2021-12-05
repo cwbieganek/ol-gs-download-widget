@@ -67,6 +67,7 @@ function downloadMnCountiesWfs(format) {
 }
 
 export default function app() {
+	// Create MN Counties Vector Source and Layer
 	const mnCountiesVectorSource = new VectorSource({
 		format: new GeoJSON(),
 		url: function (extent) {
@@ -92,6 +93,7 @@ export default function app() {
 		}),
 	});
 
+	// Create MN Congressional Districts Vector Source and Layer
 	const mnCongressionalDistrictsVectorSource = new VectorSource({
 		format: new GeoJSON(),
 		url: function (extent) {
@@ -119,10 +121,11 @@ export default function app() {
 	});
 
 	let view = new View({
-		center: [-10524117.583902, 5752956.496856],
+		center: [-10524117.583902, 5752956.496856], // EPSG: 4326
 		zoom: 2
 	});
 
+	// NOTE: The map variable is currently never actually used, which makes eslint angry
 	const map = new Map({
 		controls: defaultControls().extend([new DownloadControl()]),
 		target: 'map',
