@@ -148,7 +148,7 @@ export default function app() {
 	}, 2000);
 
 	// Add event listeners to download format select element
-	let formatSelect = document.getElementsByTagName("mwc-select")[0];
+	let formatSelect = document.getElementsByTagName("mwc-select")[1];
 	formatSelect.addEventListener("selected", () => {
 		console.log(`You selected the ${formatSelect.selected.value} file format.`);
 	});
@@ -156,8 +156,20 @@ export default function app() {
 	// Add event listeners to download button (in popup)
 	let popupDownloadButton = document.getElementsByTagName("mwc-button")[0];
 	popupDownloadButton.addEventListener("click", () => {
-		downloadMnCountiesWfs(formatSelect.selected.value);
-		document.getElementById("format-select-container").classList.replace("flex", "no-display");
+		let wfsLayerSelect = document.getElementsByTagName("mwc-select")[0];
+		let wfsLayerTypeName = wfsLayerSelect.selected.value;
+		let format = formatSelect.selected.value;
+
+		switch (wfsLayerTypeName) {
+			case "mn:congdist_117_a_mn":
+				downloadMnCongressionalDistrictsWfs(format);
+				break;
+			case "mn:county_nrcs_a_mn":
+				downloadMnCountiesWfs(format);
+				break;
+			default:
+				throw Error("Invalid WFS layer type name " + wfsLayerTypeName);
+		}
 	});
 
 	// function afterCsvParsed(results) {
