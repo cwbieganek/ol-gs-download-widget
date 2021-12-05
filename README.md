@@ -9,12 +9,12 @@ This OpenLayers application implements a GeoServer WFS layer download control. I
 
 This has traditionally been challenging to implement using the ESRI ArcGIS API for JavaScript. I wanted to show how easy it can be using OpenLayers and GeoServer Web Feature Services.
 
-# Technology
+## Technology
 
 - OpenLayers
 - Material Web Components
 
-# Links
+## Links
 
 Lit component libraries: https://github.com/web-padawan/awesome-lit#component-libraries
 
