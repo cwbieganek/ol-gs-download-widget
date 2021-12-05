@@ -157,15 +157,15 @@ export default function app() {
 		document.getElementById("format-select-container").classList.replace("flex", "no-display");
 	});
 
-	function afterCsvParsed(results) {
-		if (results.errors.length > 0) {
-			console.error("Failed to parse the \"MN People Vaccinated By County CSV\"");
-			return;
-		}
+	// function afterCsvParsed(results) {
+	// 	if (results.errors.length > 0) {
+	// 		console.error("Failed to parse the \"MN People Vaccinated By County CSV\"");
+	// 		return;
+	// 	}
 
-		// Sucessfully parsed the CSV
-		console.log("Successfully parsed the \"MN People Vaccinated By County CSV\"");
-	}
+	// 	// Sucessfully parsed the CSV
+	// 	console.log("Successfully parsed the \"MN People Vaccinated By County CSV\"");
+	// }
 
 	// Attempt to parse the MN vaccination by county CSV from S3
 	// Papa.parse("https://chrisb-gis-data.s3.us-west-2.amazonaws.com/MN_People_Vaccinated_By_County_211105.csv", {
