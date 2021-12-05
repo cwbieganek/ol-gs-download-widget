@@ -65,3 +65,7 @@ mwc-dialog {
 .ol-control button {
 	background-color: #00C853;
 }
+
+.ol-control button:hover {
+	background-color: #027a34;
+}
