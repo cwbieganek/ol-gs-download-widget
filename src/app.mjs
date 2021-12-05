@@ -48,6 +48,15 @@ class DownloadControl extends Control {
 	}
 }
 
+function downloadMnCongressionalDistrictsWfs(format) {
+	downloadWfs(
+		"http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs",
+		"1.0.0",
+		"	mn:congdist_117_a_mn",
+		format
+	);
+}
+
 function downloadMnCountiesWfs(format) {
 	downloadWfs(
 		"http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs",
