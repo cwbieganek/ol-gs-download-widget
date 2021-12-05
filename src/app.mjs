@@ -44,10 +44,17 @@ class DownloadControl extends Control {
 
 	handleDownloadClick() {
 		console.log("Download button clicked!");
-		// document.getElementById("format-select-container").classList.replace("no-display", "flex");
 		document.getElementsByTagName("mwc-dialog")[0].show();
-		// downloadMnCountiesWfs("SHAPE-ZIP");
 	}
+}
+
+function downloadMnCongressionalDistrictsWfs(format) {
+	downloadWfs(
+		"http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs",
+		"1.0.0",
+		"	mn:congdist_117_a_mn",
+		format
+	);
 }
 
 function downloadMnCountiesWfs(format) {
@@ -60,7 +67,8 @@ function downloadMnCountiesWfs(format) {
 }
 
 export default function app() {
-	const vectorSource = new VectorSource({
+	// Create MN Counties Vector Source and Layer
+	const mnCountiesVectorSource = new VectorSource({
 		format: new GeoJSON(),
 		url: function (extent) {
 			return (
@@ -75,8 +83,8 @@ export default function app() {
 		strategy: bboxStrategy,
 	});
 	
-	const vector = new VectorLayer({
-		source: vectorSource,
+	const mnCountiesVectorLayer = new VectorLayer({
+		source: mnCountiesVectorSource,
 		style: new Style({
 			stroke: new Stroke({
 				color: 'rgba(0, 0, 0, 1.0)',
@@ -85,12 +93,39 @@ export default function app() {
 		}),
 	});
 
+	// Create MN Congressional Districts Vector Source and Layer
+	const mnCongressionalDistrictsVectorSource = new VectorSource({
+		format: new GeoJSON(),
+		url: function (extent) {
+			return (
+				'http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs?service=WFS&' +
+				'version=1.1.0&request=GetFeature&typename=	mn:congdist_117_a_mn&' +
+				'outputFormat=application/json&srsname=EPSG:4326&' +
+				'bbox=' +
+				extent.join(',') +
+				',EPSG:4326'
+			);
+		},
+		strategy: bboxStrategy,
+	});
+	
+	const mnCongressionalDistrictsVectorLayer = new VectorLayer({
+		source: mnCongressionalDistrictsVectorSource,
+		style: new Style({
+			stroke: new Stroke({
+				color: 'rgba(173, 216, 230, 1.0)',
+				width: 2,
+				lineDash: [4, 10]
+			})
+		}),
+	});
+
 	let view = new View({
-		center: [-10524117.583902, 5752956.496856],
-		// center: [0, 0],
+		center: [-10524117.583902, 5752956.496856], // EPSG: 4326
 		zoom: 2
 	});
 
+	// NOTE: The map variable is currently never actually used, which makes eslint angry
 	const map = new Map({
 		controls: defaultControls().extend([new DownloadControl()]),
 		target: 'map',
@@ -100,19 +135,20 @@ export default function app() {
 					url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				})
 			}),
-			vector
+			mnCountiesVectorLayer,
+			mnCongressionalDistrictsVectorLayer
 		],
 		view: view
 	});
 
-	// This is hack that waits three seconds before updating the zoom level because the MN Counties
+	// This is hack that waits two seconds before updating the zoom level because the MN Counties
 	// WFS will not appear unless we start at zoom level 2. Once the layer appears, we can zoom in.
 	setTimeout(() => {
 		view.animate({ zoom: 6 });
 	}, 2000);
 
 	// Add event listeners to download format select element
-	let formatSelect = document.getElementsByTagName("mwc-select")[0];
+	let formatSelect = document.getElementsByTagName("mwc-select")[1];
 	formatSelect.addEventListener("selected", () => {
 		console.log(`You selected the ${formatSelect.selected.value} file format.`);
 	});
@@ -120,19 +156,31 @@ export default function app() {
 	// Add event listeners to download button (in popup)
 	let popupDownloadButton = document.getElementsByTagName("mwc-button")[0];
 	popupDownloadButton.addEventListener("click", () => {
-		downloadMnCountiesWfs(formatSelect.selected.value);
-		document.getElementById("format-select-container").classList.replace("flex", "no-display");
+		let wfsLayerSelect = document.getElementsByTagName("mwc-select")[0];
+		let wfsLayerTypeName = wfsLayerSelect.selected.value;
+		let format = formatSelect.selected.value;
+
+		switch (wfsLayerTypeName) {
+			case "mn:congdist_117_a_mn":
+				downloadMnCongressionalDistrictsWfs(format);
+				break;
+			case "mn:county_nrcs_a_mn":
+				downloadMnCountiesWfs(format);
+				break;
+			default:
+				throw Error("Invalid WFS layer type name " + wfsLayerTypeName);
+		}
 	});
 
-	function afterCsvParsed(results) {
-		if (results.errors.length > 0) {
-			console.error("Failed to parse the \"MN People Vaccinated By County CSV\"");
-			return;
-		}
+	// function afterCsvParsed(results) {
+	// 	if (results.errors.length > 0) {
+	// 		console.error("Failed to parse the \"MN People Vaccinated By County CSV\"");
+	// 		return;
+	// 	}
 
-		// Sucessfully parsed the CSV
-		console.log("Successfully parsed the \"MN People Vaccinated By County CSV\"");
-	}
+	// 	// Sucessfully parsed the CSV
+	// 	console.log("Successfully parsed the \"MN People Vaccinated By County CSV\"");
+	// }
 
 	// Attempt to parse the MN vaccination by county CSV from S3
 	// Papa.parse("https://chrisb-gis-data.s3.us-west-2.amazonaws.com/MN_People_Vaccinated_By_County_211105.csv", {

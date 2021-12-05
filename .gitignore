@@ -1,3 +1,6 @@
+# Text file for storing next commit message
+git-commit-messages.txt
+
 .DS_Store
 
 # Logs

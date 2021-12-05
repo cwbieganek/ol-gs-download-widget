@@ -31,16 +31,23 @@
 			</mwc-top-app-bar>
 			<div id="map"></div>
 		</div>
-		<mwc-dialog heading="Download MN Counties">
+		<mwc-dialog heading="Download a WFS Layer">
 			<!-- Dialog Content -->
-			<div style="height: 314px; padding-top: 7px;">
-				<mwc-select outlined label="Select a format:">
-					<mwc-list-item></mwc-list-item>
-					<mwc-list-item value="SHAPE-ZIP">Shapefile</mwc-list-item>
-					<mwc-list-item value="application/vnd.google-earth.kml+xml">KML</mwc-list-item>
-					<mwc-list-item value="csv">CSV</mwc-list-item>
-					<mwc-list-item value="application/json">GeoJSON</mwc-list-item>
-				</mwc-select>
+			<div style="height: 335px; padding-top: 7px; display: flex; flex-direction: column;">
+				<div style="margin: 10px 0;">
+					<mwc-select outlined label="Select a WFS layer:">
+						<mwc-list-item value="mn:congdist_117_a_mn">Congressional Districts</mwc-list-item>
+						<mwc-list-item value="mn:county_nrcs_a_mn">Counties</mwc-list-item>
+					</mwc-select>
+				</div>
+				<div style="margin: 10px 0;">
+					<mwc-select outlined label="Select a format:">
+						<mwc-list-item value="SHAPE-ZIP">Shapefile</mwc-list-item>
+						<mwc-list-item value="application/vnd.google-earth.kml+xml">KML</mwc-list-item>
+						<mwc-list-item value="csv">CSV</mwc-list-item>
+						<mwc-list-item value="application/json">GeoJSON</mwc-list-item>
+					</mwc-select>
+				</div>
 			</div>
 			<!-- Dialog Primary Action -->
 			<mwc-button raised slot="primaryAction" dialogAction="downloadButton" label="Download" icon="file_download"></mwc-button>
