@@ -7,6 +7,8 @@ This OpenLayers application implements a GeoServer WFS layer download control. I
 - KMZ
 - GeoJSON
 
+This has traditionally been challenging to implement using the ESRI ArcGIS API for JavaScript. I wanted to show how easy it can be using OpenLayers and GeoServer Web Feature Services.
+
 # Technology
 
 - OpenLayers
