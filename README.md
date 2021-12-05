@@ -1,23 +1,13 @@
-# OpenLayers + Webpack
+# OpenLayers with WFS Layer Download Widget
 
-This example demonstrates how the `ol` package can be used with webpack.
+This application implements a GeoServer WFS layer download control. It takes advantage of the outputFormat parameter supported by Web Feature Services. The user can select the WFS layer they would like to download, and one of the following formats:
 
-Clone the project.
+- Shapefile
+- CSV
+- KMZ
+- GeoJSON
 
-    git clone git@github.com:openlayers/ol-webpack.git
-
-Install the project dependencies.
-
-    cd ol-webpack
-    npm install
-
-Create a bundle for the browser.
-
-    npm run build
-
-Open `index.html` to see the result.
-
-    open index.html
+# Links
 
 Lit component libraries: https://github.com/web-padawan/awesome-lit#component-libraries
 
