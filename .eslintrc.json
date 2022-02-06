@@ -92,7 +92,7 @@
                 "before": true
             }
         ],
-        "line-comment-position": "error",
+        "line-comment-position": "off",
         "linebreak-style": [
             "error",
             "unix"
@@ -190,6 +190,7 @@
         "no-unreachable-loop": "error",
         "no-unused-expressions": "error",
         "no-unused-private-class-members": "error",
+        "no-unused-vars": "warn",
         "no-use-before-define": "error",
         "no-useless-call": "error",
         "no-useless-computed-key": "error",
