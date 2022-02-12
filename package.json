@@ -4,10 +4,9 @@
 	"description": "Example using OpenLayers with Webpack",
 	"sideEffects": false,
 	"scripts": {
-		"test": "mocha --register esm",
-		"build": "wp --config webpack.config.js",
-		"build-dev": "NODE_ENV=\"development\" wp --config webpack.config.js",
-		"serve": "npx webpack serve"
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
 	},
 	"devDependencies": {
 		"eslint": "^8.4.0",
