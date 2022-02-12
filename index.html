@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://openlayers.org/en/latest/css/ol.css" type="text/css">
 
 		<!-- Add support for Web Components to older browsers. -->
-		<script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+		<!-- <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script> -->
 
 		<!-- Roboto and Material Icons fonts for Material Web Components -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
 
 		<!-- App Style -->
-    <link rel="stylesheet" href="./css/index.css" type="text/css">
+    <link rel="stylesheet" href=".src/css/index.css" type="text/css">
   </head>
   <body>
 		<div id="flex-container">
@@ -54,6 +54,6 @@
 			<!-- Dialog Secondary Action -->
 			<mwc-button outlined slot="secondaryAction" dialogAction="cancelButton" label="Cancel"></mwc-button>
 		</mwc-dialog>
-    <script src="./bundle.js"></script>
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>
