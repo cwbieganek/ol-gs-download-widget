@@ -13,11 +13,11 @@
 		"vite": "^2.8.1"
 	},
 	"dependencies": {
+		"@material/mwc-button": "^0.25.3",
 		"@material/mwc-dialog": "^0.25.3",
 		"@material/mwc-select": "^0.25.3",
 		"@material/mwc-top-app-bar": "^0.25.3",
 		"@webcomponents/webcomponentsjs": "^2.6.0",
-		"@material/mwc-button": "^0.25.3",
 		"ol": "latest",
 		"papaparse": "^5.3.1"
 	}
