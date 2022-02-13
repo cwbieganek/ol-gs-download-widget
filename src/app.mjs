@@ -164,10 +164,10 @@ export default function app() {
 		let format = formatSelect.selected.value;
 
 		switch (wfsLayerTypeName) {
-			case "mn:congdist_117_a_mn":
+			case "mn:cng2012":
 				downloadMnCongressionalDistrictsWfs(format);
 				break;
-			case "mn:county_nrcs_a_mn":
+			case "mn:mn_county_boundaries":
 				downloadMnCountiesWfs(format);
 				break;
 			default:
