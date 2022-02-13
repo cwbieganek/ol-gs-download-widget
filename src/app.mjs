@@ -124,7 +124,8 @@ export default function app() {
 	});
 
 	let view = new View({
-		center: [-10524117.583902, 5752956.496856], // EPSG: 4326
+		center: [-10450470.507149, 5845292.427024], // EPSG: 3857 (Spherical Mercator)
+		projection: "EPSG:3857",
 		zoom: 2
 	});
 
@@ -147,7 +148,10 @@ export default function app() {
 	// This is hack that waits two seconds before updating the zoom level because the MN Counties
 	// WFS will not appear unless we start at zoom level 2. Once the layer appears, we can zoom in.
 	setTimeout(() => {
-		view.animate({ zoom: 6 });
+		view.animate({
+			center: [-10450470.507149, 5845292.427024], // EPSG: 3857 (Spherical Mercator)
+			zoom: 7
+		});
 	}, 2000);
 
 	// Add event listeners to download format select element
