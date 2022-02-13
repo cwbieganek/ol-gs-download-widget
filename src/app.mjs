@@ -53,18 +53,18 @@ class DownloadControl extends Control {
 
 function downloadMnCongressionalDistrictsWfs(format) {
 	downloadWfs(
-		"http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs",
+		"http://geoserver.chrisbieganek.com:8080/geoserver/mn/wfs",
 		"1.0.0",
-		"	mn:congdist_117_a_mn",
+		"	mn:cng2012",
 		format
 	);
 }
 
 function downloadMnCountiesWfs(format) {
 	downloadWfs(
-		"http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs",
+		"http://geoserver.chrisbieganek.com:8080/geoserver/mn/wfs",
 		"1.0.0",
-		"mn:county_nrcs_a_mn",
+		"mn:mn_county_boundaries",
 		format
 	);
 }
@@ -75,8 +75,8 @@ export default function app() {
 		format: new GeoJSON(),
 		url: function (extent) {
 			return (
-				'http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs?service=WFS&' +
-				'version=1.1.0&request=GetFeature&typename=mn:county_nrcs_a_mn&' +
+				'http://geoserver.chrisbieganek.com:8080/geoserver/mn/wfs?service=WFS&' +
+				'version=1.1.0&request=GetFeature&typename=mn:mn_county_boundaries&' +
 				'outputFormat=application/json&srsname=EPSG:4326&' +
 				'bbox=' +
 				extent.join(',') +
@@ -101,8 +101,8 @@ export default function app() {
 		format: new GeoJSON(),
 		url: function (extent) {
 			return (
-				'http://ec2-34-219-14-207.us-west-2.compute.amazonaws.com:8080/geoserver/mn/wfs?service=WFS&' +
-				'version=1.1.0&request=GetFeature&typename=	mn:congdist_117_a_mn&' +
+				'http://geoserver.chrisbieganek.com:8080/geoserver/mn/wfs?service=WFS&' +
+				'version=1.1.0&request=GetFeature&typename=mn:cng2012&' +
 				'outputFormat=application/json&srsname=EPSG:4326&' +
 				'bbox=' +
 				extent.join(',') +
