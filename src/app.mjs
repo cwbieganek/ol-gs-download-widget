@@ -1,23 +1,26 @@
 // OpenLayers imports
 import { Map, View } from 'ol';
-import TileLayer from 'ol/layer/Tile.js';
-import XYZ from 'ol/source/XYZ.js';
-import GeoJSON from 'ol/format/GeoJSON.js';
-import VectorSource from 'ol/source/Vector.js';
-import { Stroke, Style } from 'ol/style.js';
-import { Vector as VectorLayer } from 'ol/layer.js';
-import {bbox as bboxStrategy} from 'ol/loadingstrategy.js';
-import {Control, defaults as defaultControls} from 'ol/control.js';
+import TileLayer from 'ol/layer/Tile';
+import XYZ from 'ol/source/XYZ';
+import GeoJSON from 'ol/format/GeoJSON';
+import VectorSource from 'ol/source/Vector';
+import { Stroke, Style } from 'ol/style';
+import { Vector as VectorLayer } from 'ol/layer';
+import {bbox as bboxStrategy} from 'ol/loadingstrategy';
+import {Control, defaults as defaultControls} from 'ol/control';
 
 // CSV parser
 // import Papa from "papaparse";
 
 // Material Web Components
-import '../node_modules/@material/mwc-select/mwc-select.js';
-import '../node_modules/@material/mwc-list/mwc-list-item.js';
-import '../node_modules/@material/mwc-button/mwc-button.js';
-import '../node_modules/@material/mwc-top-app-bar/mwc-top-app-bar.js';
-import '../node_modules/@material/mwc-dialog/mwc-dialog.js';
+import '@material/mwc-select';
+import '@material/mwc-list/mwc-list-item';
+import '@material/mwc-button';
+import '@material/mwc-top-app-bar';
+import '@material/mwc-dialog';
+
+// Download icon
+import downloadIconUrl from './img/file_download_white_24dp.svg';
 
 
 // WFS Download module
@@ -28,7 +31,7 @@ class DownloadControl extends Control {
 		const options = opt_options || {};
 
 		const button = document.createElement('button');
-		button.innerHTML = '<img style="width: 20px;" src="img/file_download_white_24dp.svg" title="Download MN Counties" alt="Download Icon" />';
+		button.innerHTML = `<img style="width: 20px;" src="${downloadIconUrl}" title="Download MN Counties" alt="Download Icon" />`;
 
 		const element = document.createElement('div');
 		element.className = 'rotate-north ol-unselectable ol-control';
