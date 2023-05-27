@@ -9,16 +9,16 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
-		"eslint": "^8.4.0",
-		"vite": "^2.8.1"
+		"eslint": "latest",
+		"vite": "latest"
 	},
 	"dependencies": {
-		"@material/mwc-button": "^0.25.3",
-		"@material/mwc-dialog": "^0.25.3",
-		"@material/mwc-select": "^0.25.3",
-		"@material/mwc-top-app-bar": "^0.25.3",
-		"@webcomponents/webcomponentsjs": "^2.6.0",
+		"@material/mwc-button": "latest",
+		"@material/mwc-dialog": "latest",
+		"@material/mwc-select": "latest",
+		"@material/mwc-top-app-bar": "latest",
+		"@webcomponents/webcomponentsjs": "latest",
 		"ol": "latest",
-		"papaparse": "^5.3.1"
+		"papaparse": "latest"
 	}
 }
