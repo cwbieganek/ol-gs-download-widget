@@ -57,7 +57,7 @@ function downloadMnCongressionalDistrictsWfs(format) {
     downloadWfs(
         `${GEOSERVER_URL}/mn/wfs`,
         "1.0.0",
-        "mn:cng2022",
+        "mn:mn_congressional_districts_2022",
         format
     );
 }
@@ -104,7 +104,7 @@ export default function app() {
         url: function (extent) {
             return (
                 `${GEOSERVER_URL}/mn/wfs?service=WFS&` +
-                'version=1.1.0&request=GetFeature&typename=mn:cng2022&' +
+                'version=1.1.0&request=GetFeature&typename=mn:mn_congressional_districts_2022&' +
                 'outputFormat=application/json&srsname=EPSG:4326&' +
                 'bbox=' +
                 extent.join(',') +
@@ -170,7 +170,7 @@ export default function app() {
         let format = formatSelect.selected.value;
 
         switch (wfsLayerTypeName) {
-            case "mn:cng2022":
+            case "mn:mn_congressional_districts_2022":
                 downloadMnCongressionalDistrictsWfs(format);
                 break;
             case "mn:mn_county_boundaries":
