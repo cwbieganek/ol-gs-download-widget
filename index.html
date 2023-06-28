@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>OpenLayers with Layer Download Widget</title>
 
-		<!-- OpenLayers Style -->
+    <!-- OpenLayers Style -->
     <link rel="stylesheet" href="https://openlayers.org/en/latest/css/ol.css" type="text/css">
 
-		<!-- Add support for Web Components to older browsers. -->
-		<script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <!-- Add support for Web Components to older browsers. -->
+    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
-		<!-- Roboto and Material Icons fonts for Material Web Components -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <!-- Roboto and Material Icons fonts for Material Web Components -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
 
-		<!-- App Style -->
+    <!-- App Style -->
     <link rel="stylesheet" href="./src/css/index.css" type="text/css">
-  </head>
-  <body>
-		<div id="flex-container">
-			<mwc-top-app-bar dense>
-				<!-- <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button> -->
-				<div slot="title">OpenLayers with WFS Layer Download Widget</div>
-				<!-- <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
+</head>
+
+<body>
+    <div id="flex-container">
+        <mwc-top-app-bar dense>
+            <!-- <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button> -->
+            <div slot="title">OpenLayers with WFS Layer Download Widget</div>
+            <!-- <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
 				<mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
 				<mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button> -->
-				<div><!-- content --></div>
-			</mwc-top-app-bar>
-			<div id="map"></div>
-		</div>
-		<mwc-dialog heading="Download a WFS Layer">
-			<!-- Dialog Content -->
-			<div style="height: 335px; padding-top: 7px; display: flex; flex-direction: column;">
-				<div style="margin: 10px 0;">
-					<mwc-select outlined label="Select a WFS layer:">
-						<mwc-list-item value="mn:cng2012">Congressional Districts</mwc-list-item>
-						<mwc-list-item value="mn:mn_county_boundaries">Counties</mwc-list-item>
-					</mwc-select>
-				</div>
-				<div style="margin: 10px 0;">
-					<mwc-select outlined label="Select a format:">
-						<mwc-list-item value="SHAPE-ZIP">Shapefile</mwc-list-item>
-						<mwc-list-item value="application/vnd.google-earth.kml+xml">KML</mwc-list-item>
-						<mwc-list-item value="csv">CSV</mwc-list-item>
-						<mwc-list-item value="application/json">GeoJSON</mwc-list-item>
-					</mwc-select>
-				</div>
-			</div>
-			<!-- Dialog Primary Action -->
-			<mwc-button raised slot="primaryAction" dialogAction="downloadButton" label="Download" icon="file_download"></mwc-button>
-			<!-- Dialog Secondary Action -->
-			<mwc-button outlined slot="secondaryAction" dialogAction="cancelButton" label="Cancel"></mwc-button>
-		</mwc-dialog>
+            <div><!-- content --></div>
+        </mwc-top-app-bar>
+        <div id="map"></div>
+    </div>
+    <mwc-dialog heading="Download a WFS Layer">
+        <!-- Dialog Content -->
+        <div style="height: 335px; padding-top: 7px; display: flex; flex-direction: column;">
+            <div style="margin: 10px 0;">
+                <mwc-select outlined label="Select a WFS layer:">
+                    <mwc-list-item value="mn:mn_congressional_districts_2022">Congressional Districts</mwc-list-item>
+                    <mwc-list-item value="mn:mn_county_boundaries">Counties</mwc-list-item>
+                </mwc-select>
+            </div>
+            <div style="margin: 10px 0;">
+                <mwc-select outlined label="Select a format:">
+                    <mwc-list-item value="SHAPE-ZIP">Shapefile</mwc-list-item>
+                    <mwc-list-item value="application/vnd.google-earth.kml+xml">KML</mwc-list-item>
+                    <mwc-list-item value="csv">CSV</mwc-list-item>
+                    <mwc-list-item value="application/json">GeoJSON</mwc-list-item>
+                </mwc-select>
+            </div>
+        </div>
+        <!-- Dialog Primary Action -->
+        <mwc-button raised slot="primaryAction" dialogAction="downloadButton" label="Download"
+            icon="file_download"></mwc-button>
+        <!-- Dialog Secondary Action -->
+        <mwc-button outlined slot="secondaryAction" dialogAction="cancelButton" label="Cancel"></mwc-button>
+    </mwc-dialog>
     <script type="module" src="./src/main.js"></script>
-  </body>
+</body>
+
 </html>
