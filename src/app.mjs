@@ -19,10 +19,6 @@ import '@material/mwc-button';
 import '@material/mwc-top-app-bar';
 import '@material/mwc-dialog';
 
-// Download icon
-import downloadIconUrl from './img/file_download_white_24dp.svg';
-
-
 // WFS Download module
 import { downloadWfs } from './wfs-download.mjs';
 
@@ -33,7 +29,7 @@ class DownloadControl extends Control {
         const options = opt_options || {};
 
         const button = document.createElement('button');
-        button.innerHTML = `<img style="width: 20px;" src="${downloadIconUrl}" title="Download MN Counties" alt="Download Icon" />`;
+        button.innerHTML = `<svg id="download-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></div>`;
 
         const element = document.createElement('div');
         element.className = 'rotate-north ol-unselectable ol-control';

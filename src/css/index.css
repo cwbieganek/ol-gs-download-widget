@@ -1,71 +1,80 @@
 html {
-	--mdc-theme-primary: #00C853;
+    --mdc-theme-primary: #00C853;
 }
 
-html, body {
-	margin: 0;
-	height: 100%;
+html,
+body {
+    margin: 0;
+    height: 100%;
 }
 
 #map {
-  flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 .rotate-north {
-	top: 65px;
-	left: .5em;
+    top: 65px;
+    left: .5em;
 }
 
 .ol-touch .rotate-north {
-	top: 80px;
+    top: 80px;
 }
 
 #format-select-container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	padding: 30px;
-	border: 1px solid black;
-	border-radius: 2px;
-	background-color: white;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .no-display {
-	display: none;
+    display: none;
 }
 
 .flex {
-	display: flex;
+    display: flex;
 }
 
 #flex-container {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 mwc-dialog {
-	width: 200px;
-	height: 500px;
+    width: 200px;
+    height: 500px;
 }
 
 /* OpenLayers style overrides */
 .ol-control button {
-	background-color: #00C853;
+    background-color: #00C853;
 }
 
 .ol-control button:hover {
-	background-color: #027a34;
+    background-color: #027a34;
+}
+
+#download-icon {
+    fill: var(--ol-subtle-foreground-color);
+}
+
+#download-icon:hover {
+    fill: var(--ol-foreground-color);
 }
