@@ -1,5 +1,7 @@
 # OpenLayers with WFS Layer Download Widget
 
+[DEMO](https://ol-gs-download-widget.pages.dev/)
+
 This OpenLayers application implements a GeoServer WFS layer download control. It takes advantage of the outputFormat parameter supported by Web Feature Services. The user can select the WFS layer they would like to download, and one of the following formats:
 
 - Shapefile
@@ -20,4 +22,3 @@ This application shows how easy this can be using OpenLayers and GeoServer Web F
 ## Links
 
 Material web components: https://github.com/material-components/material-web
-[Demo](https://ol-gs-download-widget.pages.dev/)
