@@ -20,3 +20,4 @@ This application shows how easy this can be using OpenLayers and GeoServer Web F
 ## Links
 
 Material web components: https://github.com/material-components/material-web
+[Demo](https://ol-gs-download-widget.pages.dev/)
